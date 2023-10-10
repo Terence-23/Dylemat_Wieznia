@@ -1,0 +1,49 @@
+table, th, td {
+    border: 1px solid black;
+    align-self: center;
+}
+ 
+form {
+    display: inline-block;
+    text-align: center;
+}
+
+
+p, h1, a{
+  align-self: center;
+  text-align: center;
+}
+
+body{
+  background: #1f1f1f;
+  color: #e3eaee;
+  align-items: center;
+  align-content: center;
+  /* text-align: center; */
+}
+
+button{
+  background-color: #1f1f1f;
+  border-color: #101010;
+  color: #6d92a6;
+  font-size: larger;
+}
+
+.center_div{
+  text-align: center;
+  align-items: center;
+}
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 600px;
+  width: 800px;
+}

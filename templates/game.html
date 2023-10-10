@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('connect', function () {
+            console.log('Connected to server');
+        });
+
+        // Listen for the 'redirect' message from the server
+        socket.on('redirect', function (data) {
+            var newUrl = data.url;
+            window.location.href = newUrl; // Redirect the client to the new URL
+        });
+    </script>
+</head>
+
+<body>
+<h1 id="dylemat-wi-nia">Dylemat więźnia</h1>
+<p>
+  Dwóch znanych policji przestępców złapano w kradzionym aucie. Podejrzewa się
+  ich o popełnienie dużo poważniejszego przestępstwa (zbrodni), na co jednak nie
+  ma żadnych dowodów. Przestępcy są przesłuchiwani w osobnych celach bez
+  możliwości komunikowania się ze sobą. Przesłuchujący ich komisarz wpada na
+  pewien pomysł - proponuje im nagrodę za wsypanie wspólnika i dostarczenie
+  dowodów na jego udział w zbrodni. Możliwe są trzy sytuacje:
+</p>
+<ol>
+  <li>
+    oboje milczą - wówczas oboje otrzymują niewielki wyrok za kradzież auta (2
+    lata)
+  </li>
+  <li>
+    jeden się przyznaje i wsypuje wspólnika - zdrajca wychodzi na wolność, jego
+    kompan (tzw. frajer) otrzymuje wyrok za kradzież i za popełnienie zbrodni (5
+    lat)
+  </li>
+  <li>
+    oboje się przyznają i wsypują wspólnika - oboje otrzymują karę za kradzież i
+    popełnienie zbrodni, nieco złagodzoną ze względu na współpracę z wymiarem
+    sprawiedliwości (4 lata)
+  </li>
+</ol>
+<p>Można to przedstawić w postaci następującej macierzy:</p>
+<div class="center_div">
+  <table>
+    <thead>
+      <tr>
+        <th>Gracz 1\Gracz 2</th>
+        <td>W</th>
+        <td>Z</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>W</td>
+        <td>-2,-2</td>
+        <td>-5,0</td>
+      </tr>
+      <tr>
+        <td>Z</td>
+        <td>0,-5</td>
+        <td>-4,-4</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>
+  Strategia W oznacza współpracę (między graczami), czyli milczenie. Strategia Z
+  oznacza zdradę, czyli wsypanie wspólnika.
+</p>
+<div class='center_div'>
+    <h1>Podaj swoją decyzję</h1>
+    <form method="POST">
+      <button type="submit" name="action" value="zdrada">Zdradzić</button>
+      <button type="submit" name="action" value="współpraca">Współpracować</button>
+    </form>
+</div>
+
+</body>

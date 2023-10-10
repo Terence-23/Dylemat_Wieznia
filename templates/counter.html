@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Echo</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('message', function(data) {
+            var messageElement = document.createElement('p');
+            messageElement.textContent = data.message;
+            document.body.appendChild(messageElement);
+        });
+
+        socket.on('connect', function () {
+            console.log('Connected to server');
+        });
+
+        // Listen for the 'redirect' message from the server
+        socket.on('redirect', function (data) {
+            var newUrl = data.url;
+            window.location.href = newUrl; // Redirect the client to the new URL
+        });
+    </script>
+</head>
+<body>
+    <h1>WebSocket Echo</h1>
+    <div id="message-container"></div>
+</body>
+</html>

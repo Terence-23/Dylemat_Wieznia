@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <title>Wyniki</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('connect', function () {
+            console.log('Connected to server');
+        });
+
+        // Listen for the 'redirect' message from the server
+        socket.on('redirect', function (data) {
+            var newUrl = data.url;
+            window.location.href = newUrl; // Redirect the client to the new URL
+        });
+    </script>
+</head>
+<body>
+    <h1>Wykres</h1>
+    <img src="data:image/png;base64,{{ plot_data }}" alt="Generated Plot">
+    <p>Twój wynik to: {{result}}</p>
+    <a href='/'>Powrót</a>
+</body>
+</html>
