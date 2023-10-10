@@ -10,6 +10,7 @@ Można to przedstawić w postaci następującej macierzy:
 |-----------------|---|---|
 | W | -2,-2 | -5,0 |
 | Z |0,-5 | -4,-4 |
+
 Strategia W oznacza współpracę (między graczami), czyli milczenie. Strategia Z oznacza zdradę, czyli
 wsypanie wspólnika.
 Gracz dostaje te informacje i wypłaty. Zostaje połączony przez serwer z drugim graczem (nie wie z
