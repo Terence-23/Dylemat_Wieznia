@@ -148,7 +148,7 @@ def calc_results():
         results = game_results(pStates)
         print(f"Results:\n{results}")
         x = ["Dwie zdrady", "Jedna zdrada", "Współpraca"]
-        y = [1, 2, 4]
+        y = [results.values().count(-4)//2, results.values().count(0), results.values().count(-2)//2]
         
         plt.bar(x, y)
         plt.xlabel('możliwości')
