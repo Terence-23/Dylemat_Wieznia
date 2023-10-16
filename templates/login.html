@@ -6,19 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>logowanie</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
-    <script type="text/javascript">
-        var socket = io.connect('http://' + document.domain + ':' + location.port);
-
-        socket.on('connect', function () {
-            console.log('Connected to server');
-        });
-
-        // Listen for the 'redirect' message from the server
-        socket.on('redirect', function (data) {
-            var newUrl = data.url;
-            window.location.href = newUrl; // Redirect the client to the new URL
-        });
-    </script>
+    
 </head>
 <body>
     <form action="/login" method="POST">

@@ -1,0 +1,6 @@
+runtime: python311
+entrypoint: gunicorn --worker-class eventlet -w 1 -b :$PORT app:app
+
+handlers:
+- url: /.*
+  script: auto
